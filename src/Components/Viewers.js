@@ -1,45 +1,48 @@
-
 import styled from "styled-components";
 
+const data = [
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-disney.png?alt=media&token=59a3d1e7-4b82-48a1-9c30-bff2e418a85c",
+    video: "/videos/1564674844-disney.mp4",
+  },
+
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-pixar.png?alt=media&token=70676a1f-da5a-4f30-9f2f-2f7bdab10767",
+    video: "/videos/1564676714-pixar.mp4",
+  },
+
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-marvel.png?alt=media&token=47c7b1c3-ef5a-4c0e-8c17-db3a5dc06aa0",
+    video: "/videos/1564676115-marvel.mp4",
+  },
+
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-starwars.png?alt=media&token=404b0d89-3efc-4ba1-90cf-3db1cd2d029c",
+    video: "/videos/1608229455-star-wars.mp4",
+  },
+
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-national.png?alt=media&token=29982768-f0dc-49d4-b0eb-e0c0b098899e",
+    video: "/videos/1564676296-national-geographic.mp4",
+  },
+];
+
 const Viewers = (props) => {
-    return (
-        <Container>
-            <Wrap>
-                <img src="https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-disney.png?alt=media&token=59a3d1e7-4b82-48a1-9c30-bff2e418a85c" alt="" />
-                <video autoPlay={true} loop={true} playsInline={true}>
-                    <source src="/videos/1564674844-disney.mp4" type="video/mp4" />
-                </video>
-            </Wrap>
-            <Wrap>
-                <img src="https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-pixar.png?alt=media&token=70676a1f-da5a-4f30-9f2f-2f7bdab10767" alt="" />
-                <video autoPlay={true} loop={true} playsInline={true}>
-                    <source src="/videos/1564676714-pixar.mp4" type="video/mp4" />
-                    <source src="/videos/1564676714-pixar.mp4" type="video/ogg" />
-                </video>
-            </Wrap>
-            <Wrap>
-                <img src="https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-marvel.png?alt=media&token=47c7b1c3-ef5a-4c0e-8c17-db3a5dc06aa0" alt="" />
-                <video autoPlay={true} loop={true} playsInline={true}>
-                    <source src="/videos/1564676115-marvel.mp4" type="video/mp4" />
-                    <source src="/videos/1564676115-marvel.mp4" type="video/ogg" />
-                </video>
-            </Wrap>
-            <Wrap>
-                <img src="https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-starwars.png?alt=media&token=404b0d89-3efc-4ba1-90cf-3db1cd2d029c" alt="" />
-                <video autoPlay={true} loop={true} playsInline={true}>
-                    <source src="/videos/1608229455-star-wars.mp4" type="video/mp4" />
-                    <source src="/videos/1608229455-star-wars.mp4" type="video/ogg" />
-                </video>
-            </Wrap>
-            <Wrap>
-                <img src="https://firebasestorage.googleapis.com/v0/b/disney-clone-907c9.appspot.com/o/Disney%2FImages%2Fviewers-national.png?alt=media&token=29982768-f0dc-49d4-b0eb-e0c0b098899e" alt="" />
-                <video autoPlay={true} loop={true} playsInline={true}>
-                    <source src="/videos/1564676296-national-geographic.mp4" type="video/mp4"/>
-                    <source src="/videos/1564676296-national-geographic.mp4" type="video/ogg"/>
-                </video>
-            </Wrap>
-        </Container>
-    );
+  return (
+    <Container>
+      {data.map((index) => {
+        return (
+          <Wrap>
+            <img src={index["img"]} alt="" />
+            <video autoPlay={true} loop={true} playsInline={true}>
+              <source src={index["video"]} type="video/mp4" />
+              <source src={index["video"]} type="video/ogg" />
+            </video>
+          </Wrap>
+        );
+      })}
+    </Container>  
+  );
 };
 
 const Container = styled.div`
